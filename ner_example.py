@@ -29,6 +29,8 @@ for word, pos in nltk.pos_tag(tokens):
 entity_labels = ["0", "0", "0", "B-EMOTION", "B-ILLNESS", "0", "B-BEHAVIOR", "0", "B-SYMPTOM", "I-SYMPTOM", "I-SYMPTOM"]
 
 training_data_coNLL = ""
+
+# copied this for loop from https://github.com/JohnSnowLabs/spark-nlp-workshop/blob/master/tutorials/Certification_Trainings/Healthcare/1.Clinical_Named_Entity_Recognition_Model.ipynb
 for token, pos, label in zip(tokens, pos_labels, entity_labels):
     # using the coNLL format mentioned earlier (:
     training_data_coNLL += "{} {} {} {} \n".format(token, pos, pos, label)
