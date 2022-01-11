@@ -53,3 +53,4 @@ for token, pos, label in zip(tokens, pos_labels, entity_labels):
 print(training_data_coNLL)
 
 f.close()
+g.close()
