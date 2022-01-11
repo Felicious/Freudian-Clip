@@ -2,13 +2,23 @@
 import nltk
 from nltk import word_tokenize
 
+# packages for lib
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
+
+sentence = ""
+with open("input.txt", "r") as f:
+    sentence = f.read()
+
 # change words into tokens
-tokens = word_tokenize("When I'm feeling anxious, I overthink and lose my appetite.")
+tokens = word_tokenize(sentence)
 
 # expand contraction "I'm" to "I am" 
 # u can use the library "contractions" to do this, but I'd rather not today
-im = tokens.index("\'m")
-tokens[im] = "am"
+for word in tokens:
+    if word == "\'m":
+        im = tokens.index("\'m")
+        tokens[im] = "am"
 
 # remove punctuation
 # there is prob a lib for this but im too lazy to find it
@@ -37,10 +47,4 @@ for token, pos, label in zip(tokens, pos_labels, entity_labels):
 
 print(training_data_coNLL)
 
-
-
-
-
-
-
-
+f.close()
