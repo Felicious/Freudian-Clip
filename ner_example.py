@@ -36,7 +36,12 @@ for word, pos in nltk.pos_tag(tokens):
     pos_labels.append(pos)
 
 # create entity labels!
-entity_labels = ["0", "0", "0", "B-EMOTION", "B-ILLNESS", "0", "B-BEHAVIOR", "0", "B-SYMPTOM", "I-SYMPTOM", "I-SYMPTOM"]
+entity_labels = []
+with open("entities.txt", "r") as g:
+    for line in g:
+        # reading word 
+        for label in line.split():
+            entity_labels.append(label)
 
 training_data_coNLL = ""
 
